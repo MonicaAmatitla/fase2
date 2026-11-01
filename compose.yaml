@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      MODEL_PATH: ${MODEL_PATH:-}
+    volumes:
+      - ${MODEL_DIR:-./model}:/models:ro
+    restart: unless-stopped
